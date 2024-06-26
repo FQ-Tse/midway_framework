@@ -40,4 +40,7 @@ export default {
       },
     },
   },
+  info: {
+    infoPath: '/info_test',
+  },
 } as MidwayConfig;

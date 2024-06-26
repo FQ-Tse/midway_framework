@@ -18,6 +18,7 @@ import * as i18n from '@midwayjs/i18n';
     passport,
     jwt,
     i18n,
+    info,
     {
       component: info,
       enabledEnvironment: ['local'],
