@@ -6,12 +6,14 @@ import { join } from 'path';
 import { ReportMiddleware } from './middleware/report.middleware';
 import * as passport from '@midwayjs/passport';
 import * as jwt from '@midwayjs/jwt';
+import * as security from '@midwayjs/security';
+import { JwtMiddleware } from './middleware/jwt.middleware';
 
 @Configuration({
   imports: [
     koa,
     validate,
-    //  security,
+    security,
     passport,
     jwt,
     {
@@ -27,7 +29,7 @@ export class MainConfiguration {
 
   async onReady() {
     // add middleware
-    this.app.useMiddleware([ReportMiddleware]);
+    this.app.useMiddleware([ReportMiddleware, JwtMiddleware]);
     // add filter
     // this.app.useFilter([NotFoundFilter, DefaultErrorFilter]);
   }
