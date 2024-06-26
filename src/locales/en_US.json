@@ -1,0 +1,6 @@
+{
+  "hello": "Hello {username}",
+  "email": "email id",
+  "login": "login account",
+  "createdAt": "register date"
+}

@@ -29,4 +29,15 @@ export default {
       enable: false,
     },
   },
+  i18n: {
+    // 翻译文本
+    localeTable: {
+      en_US: {
+        default: require('../locales/en_US'),
+      },
+      zh_CN: {
+        default: require('../locales/zh_CN'),
+      },
+    },
+  },
 } as MidwayConfig;

@@ -1,9 +1,9 @@
-import { Inject, Middleware, httpError } from '@midwayjs/core';
+import { Inject, Middleware, httpError, IMiddleware } from '@midwayjs/core';
 import { Context, NextFunction } from '@midwayjs/koa';
 import { JwtService } from '@midwayjs/jwt';
 
 @Middleware()
-export class JwtMiddleware {
+export class JwtMiddleware implements IMiddleware<Context, NextFunction> {
   @Inject()
   jwtService: JwtService;
 
@@ -14,7 +14,7 @@ export class JwtMiddleware {
   resolve() {
     return async (ctx: Context, next: NextFunction) => {
       // 判断下有没有校验信息
-      if (!ctx.headers['authorization']) {
+      if (!ctx.headers['authorization'] && this.match(ctx)) {
         throw new httpError.UnauthorizedError();
       }
       // 从 header 上获取校验信息
@@ -45,7 +45,7 @@ export class JwtMiddleware {
 
   // 配置忽略鉴权的路由地址
   public match(ctx: Context): boolean {
-    const ignore = ctx.path.indexOf('/api/admin/login') !== -1;
+    const ignore = ctx.path.indexOf('/api') !== -1;
     return !ignore;
   }
 }

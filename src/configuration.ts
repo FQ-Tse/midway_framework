@@ -8,6 +8,7 @@ import * as passport from '@midwayjs/passport';
 import * as jwt from '@midwayjs/jwt';
 import * as security from '@midwayjs/security';
 import { JwtMiddleware } from './middleware/jwt.middleware';
+import * as i18n from '@midwayjs/i18n';
 
 @Configuration({
   imports: [
@@ -16,6 +17,7 @@ import { JwtMiddleware } from './middleware/jwt.middleware';
     security,
     passport,
     jwt,
+    i18n,
     {
       component: info,
       enabledEnvironment: ['local'],
