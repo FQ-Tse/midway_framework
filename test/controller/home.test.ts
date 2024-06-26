@@ -1,7 +1,7 @@
 import { createApp, close, createHttpRequest } from '@midwayjs/mock';
 import { Framework } from '@midwayjs/koa';
 
-describe('test/controller/home.test.ts', () => {
+describe('test/servers/home.test.ts', () => {
 
   it('should GET /', async () => {
     // create app
