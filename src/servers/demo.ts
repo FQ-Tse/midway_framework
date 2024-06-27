@@ -12,6 +12,7 @@ export class Demo {
 
   @Post('/test')
   async test() {
+    console.log('////////');
     return this.ctx.headers;
   }
 

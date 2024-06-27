@@ -1,21 +1,21 @@
-import {Inject, Provide} from "@midwayjs/core";
-import {IUser} from "../../interfaces";
-import {JwtService} from "@midwayjs/jwt";
+import { Inject, Provide } from '@midwayjs/core';
+import { JwtService } from '@midwayjs/jwt';
+import _ from 'lodash';
+import { LoginDTO } from '../../dto';
+import { Context } from '@midwayjs/koa';
 
 @Provide('UserService')
 export class UserService {
-
   @Inject()
   jwtService: JwtService;
 
-  async login(user: IUser) {
-    // TODO: 先入库查找是否存在此账户
-    const payload = {
-      username: user.username,
-      password: user.password
-    }
+  @Inject()
+  ctx: Context;
+
+  async login(user: LoginDTO) {
+    console.log(this.ctx);
     return {
-      access_token: this.jwtService.sign(payload)
-    }
+      access_token: this.ctx.getAttr('Authorization'),
+    };
   }
 }

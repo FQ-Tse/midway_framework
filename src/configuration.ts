@@ -9,6 +9,9 @@ import * as jwt from '@midwayjs/jwt';
 import * as security from '@midwayjs/security';
 import { JwtMiddleware } from './middleware/jwt.middleware';
 import * as i18n from '@midwayjs/i18n';
+import { NotFoundFilter } from './filter/notfound.filter';
+import { DefaultErrorFilter } from './filter/default.filter';
+import * as swagger from '@midwayjs/swagger';
 
 @Configuration({
   imports: [
@@ -19,8 +22,9 @@ import * as i18n from '@midwayjs/i18n';
     jwt,
     i18n,
     info,
+    swagger,
     {
-      component: info,
+      component: [info, swagger],
       enabledEnvironment: ['local'],
     },
   ],
@@ -34,6 +38,6 @@ export class MainConfiguration {
     // add middleware
     this.app.useMiddleware([ReportMiddleware, JwtMiddleware]);
     // add filter
-    // this.app.useFilter([NotFoundFilter, DefaultErrorFilter]);
+    this.app.useFilter([NotFoundFilter, DefaultErrorFilter]);
   }
 }
