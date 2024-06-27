@@ -12,6 +12,7 @@ import * as i18n from '@midwayjs/i18n';
 import { NotFoundFilter } from './filter/notfound.filter';
 import { DefaultErrorFilter } from './filter/default.filter';
 import * as swagger from '@midwayjs/swagger';
+import * as typeorm from '@midwayjs/typeorm';
 
 @Configuration({
   imports: [
@@ -23,6 +24,7 @@ import * as swagger from '@midwayjs/swagger';
     i18n,
     info,
     swagger,
+    typeorm,
     {
       component: [info, swagger],
       enabledEnvironment: ['local'],
