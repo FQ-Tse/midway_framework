@@ -17,6 +17,7 @@
     "@midwayjs/typeorm": "^3.16.2",
     "@midwayjs/validate": "^3.16.2",
     "lodash": "^4.17.21",
+    "mysql": "^2.18.1",
     "passport-jwt": "^4.0.1",
     "typeorm": "^0.3.20"
   },

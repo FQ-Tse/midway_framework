@@ -43,4 +43,22 @@ export default {
   info: {
     infoPath: '/info_test',
   },
+
+  typeorm: {
+    dataSource: {
+      default: {
+        type: 'mysql',
+        host: 'localhost',
+        port: 3306,
+        username: 'root',
+        password: 'ybw.123456',
+        database: 'midway_db',
+        synchronize: false, // 自动生成表结构，仅可在开发环境使用
+        logging: true,
+
+        // 实体模型扫描
+        entities: ['entity'],
+      },
+    },
+  },
 } as MidwayConfig;
