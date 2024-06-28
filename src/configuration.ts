@@ -13,6 +13,7 @@ import { NotFoundFilter } from './filter/notfound.filter';
 import { DefaultErrorFilter } from './filter/default.filter';
 import * as swagger from '@midwayjs/swagger';
 import * as typeorm from '@midwayjs/typeorm';
+import * as redis from '@midwayjs/redis';
 
 @Configuration({
   imports: [
@@ -25,6 +26,7 @@ import * as typeorm from '@midwayjs/typeorm';
     info,
     swagger,
     typeorm,
+    redis,
     {
       component: [info, swagger],
       enabledEnvironment: ['local'],

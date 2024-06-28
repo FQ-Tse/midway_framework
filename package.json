@@ -12,6 +12,7 @@
     "@midwayjs/koa": "^3.12.0",
     "@midwayjs/logger": "^3.1.0",
     "@midwayjs/passport": "^3.16.2",
+    "@midwayjs/redis": "^3.16.2",
     "@midwayjs/security": "^3.16.2",
     "@midwayjs/swagger": "^3.16.2",
     "@midwayjs/typeorm": "^3.16.2",
